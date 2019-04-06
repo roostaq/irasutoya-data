@@ -3,7 +3,7 @@ require 'open-uri'
 require 'yaml'
 Bundler.require
 
-url = 'http://www.irasutoya.com/feeds/posts/default'
+url = 'https://www.irasutoya.com/feeds/posts/default'
 count = 1
 
 loop do
