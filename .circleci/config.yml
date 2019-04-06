@@ -1,27 +1,36 @@
 version: 2
 jobs:
-    build:
-        branches:
+  build:
+    docker:
+    - image: circleci/ruby:2.3-jessie
+    steps:
+    - checkout
+    - run:
+        name: install deps
+        command: bundle install
+    - run:
+        name: Exec aggregator
+        command: bundle exec ruby ./scripts/aggregator.rb
+  deploy:
+    machine:
+      enabled: true
+    steps:
+    - checkout
+    - run:
+        name: Deploy to github.io
+        command: ./deploy-to-gh-pages.sh dist
+workflows:
+  version: 2
+  workflow:
+    jobs:
+    - build:
+        filters:
+          branches:
             ignore:
-                - gh-pages
-        docker:
-            - image: circleci/ruby:2.3-jessie
-        steps:
-            - checkout
-            - run:
-                name: install deps
-                command: bundle install
-            - run:
-                name: Exec aggregator
-                command: bundle exec ruby ./scripts/aggregator.rb
-             - run:
-                name: Deploy to github.io
-                command: ./deploy-to-gh-pages.sh dist
-    deploy:
-        machine:
-            enabled: true
-        steps:
-            - checkout
-            - run:
-                name: Deploy to github.io
-                command: ./deploy-to-gh-pages.sh dist
+            - gh-pages
+    - deploy:
+        requires:
+            - build
+        filters:
+            branches:
+                only: sequential-branch-filter
