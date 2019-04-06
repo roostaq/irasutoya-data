@@ -22,3 +22,11 @@ jobs:
             - run:
                 name: Deploy to github.io
                 command: ./deploy-to-gh-pages.sh dist
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
