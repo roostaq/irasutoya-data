@@ -22,20 +22,7 @@ jobs:
         command: ./update-data.sh
 workflows:
   version: 2
-  monthly:
-    triggers:
-      - schedule:
-          cron: "* * 1 * *"
-          filters:
-            branches:
-              only:
-                - master
-    jobs:
-      - build:
-        filters:
-          branches:
-            ignore:
-            - gh-pages
+
   commit:
     jobs:
       - build:
@@ -43,4 +30,3 @@ workflows:
           branches:
             ignore:
             - gh-pages
-
