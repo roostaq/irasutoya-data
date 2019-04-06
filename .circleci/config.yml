@@ -1,21 +1,20 @@
-version: 2.1      
+version: 2
 jobs:
-  general:
-    branches:
-      ignore:
-        - gh-pages
-  machine:
-    timezone:
-      'Asia/Tokyo'
-    ruby:
-      version:
-        '2.3.0'
-  test:
-    override:
-      - bundle exec ruby ./scripts/aggregator.rb
-  deployment:
-    publish:
-      branch:
-        'master'
-      commands:
-        - ./deploy-to-gh-pages.sh dist
+    build:
+        branches:
+            ignore:
+                - gh-pages
+        docker:
+            - image: circleci/ruby:2.3-jessie
+        steps:
+            - run:
+                name: Exec aggregator
+                command: undle exec ruby ./scripts/aggregator.rb
+    deploy:
+        machine:
+            enabled: true
+        steps:
+            - checkout
+            - run:
+                name: Deploy to github.io
+                command:./deploy-to-gh-pages.sh dist
