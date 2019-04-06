@@ -17,9 +17,9 @@ jobs:
     - run:
         name: Deploy to github.io
         command: ./deploy-to-gh-pages.sh dist
-    - run:
-        name: Deploy update-data to github
-        command: ./update-data.sh
+    #- run: #does not work
+    #    name: Deploy update-data to github
+    #    command: ./update-data.sh
 workflows:
   version: 2
   monthly:
