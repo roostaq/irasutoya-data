@@ -1,5 +1,7 @@
 # irasutoya-data
 
+This is just a mirror. Please use june29's repo instead
+
 Formatted irasutoya data.
 
-https://june29.github.io/irasutoya-data/irasutoya.json
+https://roostaq.github.io/irasutoya-data/irasutoya.json
