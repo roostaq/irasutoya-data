@@ -12,8 +12,11 @@ jobs:
         name: Exec aggregator
         command: bundle exec ruby ./scripts/aggregator.rb
     - run:
-        name: Deploy update-data to github
-        command: ./update-data.sh
+        name: Exec fetcher.rb
+        command: bundle exec ruby ./scripts/fetcher.rb
+    #- run:
+     #   name: Deploy update-data to github
+      #  command: ./update-data.sh
     - run:
         name: Deploy to github.io
         command: ./deploy-to-gh-pages.sh dist
