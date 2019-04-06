@@ -11,11 +11,6 @@ jobs:
     - run:
         name: Exec aggregator
         command: bundle exec ruby ./scripts/aggregator.rb
-  deploy:
-    machine:
-      enabled: true
-    steps:
-    - checkout
     - run:
         name: Deploy to github.io
         command: ./deploy-to-gh-pages.sh dist
@@ -28,9 +23,3 @@ workflows:
           branches:
             ignore:
             - gh-pages
-    - deploy:
-        requires:
-            - build
-        filters:
-            branches:
-                only: sequential-branch-filter
