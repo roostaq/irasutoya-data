@@ -9,7 +9,7 @@ jobs:
         steps:
             - run:
                 name: Exec aggregator
-                command: undle exec ruby ./scripts/aggregator.rb
+                command: bundle exec ruby ./scripts/aggregator.rb
     deploy:
         machine:
             enabled: true
