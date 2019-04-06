@@ -17,3 +17,11 @@ jobs:
              - run:
                 name: Deploy to github.io
                 command: ./deploy-to-gh-pages.sh dist
+    deploy:
+        machine:
+            enabled: true
+        steps:
+            - checkout
+            - run:
+                name: Deploy to github.io
+                command: ./deploy-to-gh-pages.sh dist
