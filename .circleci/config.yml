@@ -17,4 +17,4 @@ jobs:
             - checkout
             - run:
                 name: Deploy to github.io
-                command:./deploy-to-gh-pages.sh dist
+                command: ./deploy-to-gh-pages.sh dist
