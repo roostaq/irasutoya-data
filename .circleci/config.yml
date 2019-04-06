@@ -1,19 +1,21 @@
-general:
-  branches:
-    ignore:
-      - gh-pages
-machine:
-  timezone:
-    'Asia/Tokyo'
-  ruby:
-    version:
-      '2.3.0'
-test:
-  override:
-    - bundle exec ruby ./scripts/aggregator.rb
-deployment:
-  publish:
-    branch:
-      'master'
-    commands:
-      - ./deploy-to-gh-pages.sh dist
+version: 2.1      
+jobs:
+  general:
+    branches:
+      ignore:
+        - gh-pages
+  machine:
+    timezone:
+      'Asia/Tokyo'
+    ruby:
+      version:
+        '2.3.0'
+  test:
+    override:
+      - bundle exec ruby ./scripts/aggregator.rb
+  deployment:
+    publish:
+      branch:
+        'master'
+      commands:
+        - ./deploy-to-gh-pages.sh dist
