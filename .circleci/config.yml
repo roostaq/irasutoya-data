@@ -9,6 +9,9 @@ jobs:
         steps:
             - checkout
             - run:
+                name: install deps
+                command: bundle install
+            - run:
                 name: Exec aggregator
                 command: bundle exec ruby ./scripts/aggregator.rb
     deploy:
