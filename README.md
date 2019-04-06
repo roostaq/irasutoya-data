@@ -1,6 +1,6 @@
 # irasutoya-data
 
-This is just a mirror. Please use june29's repo instead
+Updated from june29's repo
 
 Formatted irasutoya data.
 
