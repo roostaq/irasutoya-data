@@ -3,7 +3,7 @@
 set -e
 pwd
 
-remote="https://$GH_TOKEN@github.com/june29/irasutoya-data.git"
+remote="https://$GH_TOKEN@github.com/roostaq/irasutoya-data.git"
 
 dist="$1"
 
