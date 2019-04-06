@@ -1,12 +1,13 @@
 version: 2
 jobs:
-    build:
+    test:
         branches:
             ignore:
                 - gh-pages
         docker:
             - image: circleci/ruby:2.3-jessie
         steps:
+        	- checkout
             - run:
                 name: Exec aggregator
                 command: bundle exec ruby ./scripts/aggregator.rb
