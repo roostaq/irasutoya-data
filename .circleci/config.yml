@@ -23,13 +23,14 @@ jobs:
 workflows:
   version: 2
   workflow:
-    triggers:
-      - schedule:
-        cron: "* * 1 * *"
-        filters:
-          branches:
-            only:
-              - master
+    monthly
+      triggers:
+        - schedule:
+          cron: "* * 1 * *"
+          filters:
+            branches:
+              only:
+                - master
     jobs:
     - build:
         filters:
