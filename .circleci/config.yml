@@ -23,7 +23,7 @@ jobs:
 workflows:
   version: 2
   workflow:
-    monthly
+    monthly:
       triggers:
         - schedule:
             cron: "* * 1 * *"
@@ -31,9 +31,17 @@ workflows:
               branches:
                 only:
                   - master
-    jobs:
-    - build:
-        filters:
-          branches:
-            ignore:
-            - gh-pages
+      jobs:
+        - build:
+          filters:
+            branches:
+              ignore:
+              - gh-pages
+    commit:
+      jobs:
+        - build:
+          filters:
+            branches:
+              ignore:
+              - gh-pages
+
