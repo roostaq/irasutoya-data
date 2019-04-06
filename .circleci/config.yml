@@ -26,11 +26,11 @@ workflows:
     monthly
       triggers:
         - schedule:
-          cron: "* * 1 * *"
-          filters:
-            branches:
-              only:
-                - master
+            cron: "* * 1 * *"
+            filters:
+              branches:
+                only:
+                  - master
     jobs:
     - build:
         filters:
